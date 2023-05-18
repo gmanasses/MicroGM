@@ -7907,7 +7907,7 @@ GameObject:
   - component: {fileID: 273278513}
   m_Layer: 0
   m_Name: End
-  m_TagString: Untagged
+  m_TagString: ArrowEnd
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30556,7 +30556,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.74, y: 4.64, z: -6.95}
+  m_LocalPosition: {x: 4.73, y: 3.01, z: 10.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -53567,6 +53567,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1881274270}
+  - component: {fileID: 1881274271}
   m_Layer: 0
   m_Name: Arrow Shooter Trap
   m_TagString: Untagged
@@ -53591,6 +53592,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1881274271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1881274269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d9c75d0c1e6a4f40a58ed22a68d8cd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spawnPositions:
+  - {fileID: 1280010820}
+  - {fileID: 570979871}
+  - {fileID: 2108657435}
+  - {fileID: 46992834}
+  - {fileID: 1304722730}
+  _arrowPrefab: {fileID: 2255355733848130371, guid: 6ec2d40a9bad85e4188f95aac46afbeb, type: 3}
 --- !u!1 &1885786243
 GameObject:
   m_ObjectHideFlags: 0
