@@ -20,7 +20,6 @@ public class Arrow : MonoBehaviour {
     }
 
     private void Update() {
-        print(_canMove);
         if(_canMove) {
             MoveToEndWall();
         }
