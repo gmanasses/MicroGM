@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(CharacterController))]
@@ -85,7 +86,7 @@ public class PlayerController : MonoBehaviour {
             _fallVelocity = -1;
 
         } else {
-            _fallVelocity += _gravity * _gravityMultiplier * Time.deltaTime; 
+            _fallVelocity += _gravity * _gravityMultiplier * Time.deltaTime;
         }
 
         _inputDirection.y = _fallVelocity;
@@ -98,7 +99,7 @@ public class PlayerController : MonoBehaviour {
         _performedJumps = 0;
     }
 
-    private bool PlayerIsGrounded() {
+    public bool PlayerIsGrounded() {
         return _characterController.isGrounded;
     }
 
