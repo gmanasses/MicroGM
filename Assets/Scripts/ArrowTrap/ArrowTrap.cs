@@ -31,7 +31,7 @@ public class ArrowTrap : MonoBehaviour {
     // --- Functions ---
     private IEnumerator ActivateAllArrows() {
         _canShootAll = false;
-        yield return new WaitForSecondsRealtime(1);
+        yield return new WaitForSecondsRealtime(0.5f);
         foreach(Arrow arrow in _arrows) {
             arrow.SetMove(true);
         }

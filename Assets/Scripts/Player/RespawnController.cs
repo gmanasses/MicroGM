@@ -7,10 +7,21 @@ public class RespawnController : MonoBehaviour {
     [SerializeField] private Transform _spawnPoint;
 
 
+    // --- Core Functions ---
     private void FixedUpdate() {
         if (this.transform.position.y < _heightToRespawn) {
-            this.transform.position = new Vector3(_spawnPoint.position.x, _spawnPoint.position.y, _spawnPoint.position.z);
+            DoRespawn();
         }
+    }
+
+
+    // --- Functions ---
+    public void UpdateRespawnPoint(Transform checkpointTransform) {
+        this._spawnPoint = checkpointTransform;
+    }
+
+    public void DoRespawn() {
+        this.transform.position = new Vector3(_spawnPoint.position.x, _spawnPoint.position.y, _spawnPoint.position.z);
     }
 
 }
