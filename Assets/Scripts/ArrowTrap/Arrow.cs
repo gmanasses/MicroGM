@@ -5,13 +5,18 @@ public class Arrow : MonoBehaviour {
     // --- Private Declarations ---
     [SerializeField] float _arrowSpeed;
     [SerializeField] private bool _canMove = false;
+    private RespawnController _respawnController;
     private Transform _arrowTransf, _spawnPoint, _endWall;
     private Vector3 _endPoint;
     private float _tParam = 0f;
+    private bool _hitsPlayer;
 
 
     // --- Core Functions ---
     private void Start() {
+        _respawnController = GameObject.FindObjectOfType<RespawnController>();
+        _hitsPlayer = false;
+
         _arrowTransf = GetComponent<Transform>();
         _spawnPoint = this.transform.parent;
         _endWall = GameObject.FindGameObjectWithTag("ArrowEnd").transform;
@@ -22,6 +27,20 @@ public class Arrow : MonoBehaviour {
     private void Update() {
         if(_canMove) {
             MoveToEndWall();
+        }
+    }
+
+    private void FixedUpdate() {
+        if(_hitsPlayer) {
+            _respawnController.DoRespawn();
+            _hitsPlayer = false;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other) {
+        if (other.gameObject.tag == "Player") {
+            Debug.Log("hits");
+            _hitsPlayer = true;
         }
     }
 
