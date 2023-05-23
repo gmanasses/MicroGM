@@ -46,8 +46,8 @@ public class ActivationButton : MonoBehaviour {
                 break;
 
                 case "pressing":
-                    _buttonTransform.position = Vector3.Lerp(_buttonTransform.position, _buttonPressedTransform.position, 5 * Time.deltaTime);
-                    _buttonMaterial.color = Color.Lerp(_buttonMaterial.color, _endColor, 5 * Time.deltaTime);
+                    if (!(_buttonTransform.position == _buttonPressedTransform.position)) _buttonTransform.position = Vector3.MoveTowards(_buttonTransform.position, _buttonPressedTransform.position, Time.deltaTime);
+                    if (!(_buttonMaterial.color == _endColor)) _buttonMaterial.color = Color.Lerp(_buttonMaterial.color, _endColor, 5 * Time.deltaTime);
 
                     if ((_buttonTransform.position == _buttonPressedTransform.position) && (_buttonMaterial.color == _endColor)) {
                         _whenButtonPressed.Invoke();

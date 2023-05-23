@@ -6,6 +6,7 @@ public class CheckpointController : MonoBehaviour {
     [SerializeField] private Material[] _materials;
     private Renderer _renderer;
     private RespawnController _respawnController;
+    private Collider _respawnCollider;
 
 
     // --- Core Functions ---
@@ -15,12 +16,17 @@ public class CheckpointController : MonoBehaviour {
         _renderer = GetComponent<Renderer>();
         _renderer.enabled = true;
         _renderer.sharedMaterial = _materials[0];
+
+        _respawnCollider = GetComponent<Collider>();
+        _respawnCollider.enabled = true;
     }
 
     private void OnTriggerEnter(Collider other) {
         if(other.gameObject.tag == "Player") {
             ChangeCheckpointMaterial();
             UpdatePlayerRespawn();
+            this.enabled = false;
+            _respawnCollider.enabled = false;
         }
     }
 
