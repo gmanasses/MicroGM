@@ -50,6 +50,10 @@ public class PlayerController : MonoBehaviour {
     }
 
     public void Jump(InputAction.CallbackContext context) {
+        if(_numberJumpsAllowed == -1) {
+            return;
+        }
+
         if(!context.started) {
             return;
         } 
@@ -101,6 +105,14 @@ public class PlayerController : MonoBehaviour {
 
     public bool PlayerIsGrounded() {
         return _characterController.isGrounded;
+    }
+
+    public void SetJumpsAllowed(int jumps) {
+        this._numberJumpsAllowed = jumps;
+    }
+
+    public int GetJumpsAllowed() {
+        return this._numberJumpsAllowed;
     }
 
 }

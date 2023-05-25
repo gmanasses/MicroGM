@@ -7,7 +7,7 @@ public class ActivationButton : MonoBehaviour {
     [SerializeField] private Color _startColor, _endColor;
     [SerializeField] private Renderer _buttonRenderer;
     [SerializeField] private Transform _buttonTransform, _buttonPressedTransform;
-    [SerializeField] private UnityEvent _whenButtonPressed;
+    [SerializeField] private UnityEvent _whenButtonPressed, _whenPlayerInteracts;
     [SerializeField] private float _rotationSpeed, _moveSpeed;
     private Material _buttonMaterial;
     private bool _canSpin = true;
@@ -82,6 +82,7 @@ public class ActivationButton : MonoBehaviour {
         if(Input.GetKeyDown(KeyCode.E)) {
             _wasPressed = true;
             _canSpin = false;
+            _whenPlayerInteracts.Invoke();
         }
     }
 
