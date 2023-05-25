@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6977675322821379228}
-  - component: {fileID: 6977675322821379231}
   - component: {fileID: 6977675322821379230}
+  - component: {fileID: 6977675322821379231}
   m_Layer: 0
   m_Name: Button
   m_TagString: Untagged
@@ -34,33 +34,8 @@ Transform:
   - {fileID: 6977675324030549282}
   - {fileID: 6977675324367683669}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6977675322821379231
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6977675322821379229}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9726e02c86ddb214f9df50e136a6452a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _startColor: {r: 0.9803922, g: 0.3529412, b: 0.13725491, a: 0}
-  _endColor: {r: 0.9803922, g: 0.6117647, b: 0.13725491, a: 0}
-  _buttonRenderer: {fileID: 6977675324252486695}
-  _buttonTransform: {fileID: 6977675324252486693}
-  _buttonPressedTransform: {fileID: 6977675324367683669}
-  _whenButtonPressed:
-    m_PersistentCalls:
-      m_Calls: []
-  _whenPlayerInteracts:
-    m_PersistentCalls:
-      m_Calls: []
-  _rotationSpeed: 100
-  _moveSpeed: 1
 --- !u!135 &6977675322821379230
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -82,6 +57,31 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 2.434967
   m_Center: {x: 0, y: 0.30997896, z: 0.0012192726}
+--- !u!114 &6977675322821379231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6977675322821379229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9726e02c86ddb214f9df50e136a6452a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _whenButtonPressed:
+    m_PersistentCalls:
+      m_Calls: []
+  _whenPlayerInteracts:
+    m_PersistentCalls:
+      m_Calls: []
+  _buttonTransform: {fileID: 6977675324252486693}
+  _buttonPressedTransform: {fileID: 6977675324367683669}
+  _buttonRenderer: {fileID: 6977675324252486695}
+  _startColor: {r: 0.9803922, g: 0.3529412, b: 0.13725491, a: 0}
+  _endColor: {r: 0.9803922, g: 0.6117647, b: 0.13725491, a: 0}
+  _rotationSpeed: 100
+  _moveSpeed: 1
 --- !u!1 &6977675324030549283
 GameObject:
   m_ObjectHideFlags: 0

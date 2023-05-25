@@ -4,31 +4,40 @@ using UnityEngine.Events;
 public class ActivationButton : MonoBehaviour {
 
     // --- Private Declarations ---
-    [SerializeField] private Color _startColor, _endColor;
-    [SerializeField] private Renderer _buttonRenderer;
+    #region Cube Button
     [SerializeField] private Transform _buttonTransform, _buttonPressedTransform;
-    [SerializeField] private UnityEvent _whenButtonPressed, _whenPlayerInteracts;
+    [SerializeField] private Renderer _buttonRenderer;
+    [SerializeField] private Color _startColor, _endColor;
     [SerializeField] private float _rotationSpeed, _moveSpeed;
-    private InterfaceController _interfaceController;
     private Material _buttonMaterial;
     private bool _canSpin = true;
+    private string _stage;
+    #endregion
+
+    #region Interface Connection
+    private InterfaceController _interfaceController;
+    #endregion
+
+    #region General
+    [SerializeField] private UnityEvent _whenButtonPressed, _whenPlayerInteracts;
     private bool _wasPressed = false;
     private bool _canCheckInteract = false;
-    private string _stage;
+    #endregion
 
 
     // --- Core Functions ---
     private void OnTriggerEnter(Collider other) {
         if(other.gameObject.tag == "Player") {
             _canCheckInteract = true;
-            _interfaceController.EnableOrDisableInteractionPanel(true);
+
+            if(!_wasPressed) _interfaceController.EnableOrDisableInteractionPanel(true);
         }
     }
 
     private void OnTriggerExit(Collider other) {
         if(other.gameObject.tag == "Player") {
             _canCheckInteract = false;
-            _interfaceController.EnableOrDisableInteractionPanel(false);
+            if(!_wasPressed) _interfaceController.EnableOrDisableInteractionPanel(false);
         }
     }
 
