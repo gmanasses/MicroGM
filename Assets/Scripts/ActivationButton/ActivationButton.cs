@@ -9,6 +9,7 @@ public class ActivationButton : MonoBehaviour {
     [SerializeField] private Transform _buttonTransform, _buttonPressedTransform;
     [SerializeField] private UnityEvent _whenButtonPressed, _whenPlayerInteracts;
     [SerializeField] private float _rotationSpeed, _moveSpeed;
+    private InterfaceController _interfaceController;
     private Material _buttonMaterial;
     private bool _canSpin = true;
     private bool _wasPressed = false;
@@ -17,7 +18,23 @@ public class ActivationButton : MonoBehaviour {
 
 
     // --- Core Functions ---
+    private void OnTriggerEnter(Collider other) {
+        if(other.gameObject.tag == "Player") {
+            _canCheckInteract = true;
+            _interfaceController.EnableOrDisableInteractionPanel(true);
+        }
+    }
+
+    private void OnTriggerExit(Collider other) {
+        if(other.gameObject.tag == "Player") {
+            _canCheckInteract = false;
+            _interfaceController.EnableOrDisableInteractionPanel(false);
+        }
+    }
+
     private void Start() {
+        _interfaceController = GameObject.FindObjectOfType<InterfaceController>();
+
         _buttonMaterial = _buttonRenderer.material;
         _buttonMaterial.color = _startColor;
 
@@ -58,18 +75,6 @@ public class ActivationButton : MonoBehaviour {
         }
     }
 
-    private void OnTriggerEnter(Collider other) {
-        if(other.gameObject.tag == "Player") {
-            _canCheckInteract = true;
-        }
-    }
-
-    private void OnTriggerExit(Collider other) {
-        if(other.gameObject.tag == "Player") {
-            _canCheckInteract = false;
-        }
-    }
-
 
     // --- Functions ---
     private void SpinButton() {
@@ -82,7 +87,10 @@ public class ActivationButton : MonoBehaviour {
         if(Input.GetKeyDown(KeyCode.E)) {
             _wasPressed = true;
             _canSpin = false;
+
             _whenPlayerInteracts.Invoke();
+
+            _interfaceController.EnableOrDisableInteractionPanel(false);
         }
     }
 

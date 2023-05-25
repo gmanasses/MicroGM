@@ -1,18 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class InterfaceController : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+public class InterfaceController : MonoBehaviour {
+
+    // --- Private Declarations ---
+    [SerializeField] private GameObject _interactionPanel;
+
+
+    // --- Fuctions ---
+    public void EnableOrDisableInteractionPanel(bool enable) {
+        _interactionPanel.SetActive(enable);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
