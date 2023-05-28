@@ -6,21 +6,40 @@ public class RespawnController : MonoBehaviour {
     [SerializeField, Range(-15, -4)] private float _heightToRespawn;
     [SerializeField] private Transform _spawnPoint;
     private Transform _mainRespawnPoint;
+    private bool _wantRespawn, _canRespawn;
+
+    private PlayerStatus _playerStatus;
 
 
     // --- Core Functions ---
     private void Start() {
         _mainRespawnPoint = _spawnPoint;
+        _canRespawn = true; 
+        _wantRespawn = false;
+
+        _playerStatus = GetComponent<PlayerStatus>();
     }
 
     private void FixedUpdate() {
-        if (this.transform.position.y < _heightToRespawn) {
+        if(this.transform.position.y < _heightToRespawn) SetIfWantRespawn();
+
+        if(_wantRespawn && _canRespawn) {
             DoRespawn();
+            _playerStatus.RemoveLife();
+            _wantRespawn = false;
         }
     }
 
 
     // --- Functions ---
+    public void SetIfWantRespawn() {
+        this._wantRespawn = true;
+    }
+
+    public void SetIfCantRespawn() {
+        this._canRespawn = false;
+    }
+
     public void UpdateRespawnPoint(Transform checkpointTransform) {
         this._spawnPoint = checkpointTransform;
     }

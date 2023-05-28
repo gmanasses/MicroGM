@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(CharacterController))]
@@ -10,6 +9,7 @@ public class PlayerController : MonoBehaviour {
     #region Movements
     [SerializeField] private float _characterSpeed;
     private CharacterController _characterController;
+    private PlayerInput _pi;
     private Vector2 _playerInput;
     private Vector3 _inputDirection;
     #endregion
@@ -32,6 +32,11 @@ public class PlayerController : MonoBehaviour {
     // --- Core Functions ---
     private void Awake() {
         _characterController = GetComponent<CharacterController>();
+    }
+
+    private void Start() {
+        _pi = GetComponent<PlayerInput>();
+        DisablePlayerInput();
     }
 
     private void Update() {
@@ -115,6 +120,15 @@ public class PlayerController : MonoBehaviour {
         return this._numberJumpsAllowed;
     }
 
+    public void DisablePlayerInput() {
+        _pi.enabled = false;
+        this.enabled = false;
+    }
+
+    public void EnablePlayerInput() {
+        _pi.enabled = true;
+        this.enabled = true;
+    }
 }
 
 

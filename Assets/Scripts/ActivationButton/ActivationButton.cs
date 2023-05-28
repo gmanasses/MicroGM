@@ -4,25 +4,25 @@ using UnityEngine.Events;
 public class ActivationButton : MonoBehaviour {
 
     // --- Private Declarations ---
-    #region Cube Button
-    [SerializeField] private Transform _buttonTransform, _buttonPressedTransform;
+    [Header("Cube Button")]
+    [SerializeField] private Color _startColor;
+    [SerializeField] private Color _endColor;
     [SerializeField] private Renderer _buttonRenderer;
-    [SerializeField] private Color _startColor, _endColor;
+    [SerializeField] private Transform _buttonTransform;
+    [SerializeField] private Transform _buttonPressedTransform;
     [SerializeField] private float _rotationSpeed, _moveSpeed;
     private Material _buttonMaterial;
     private bool _canSpin = true;
     private string _stage;
-    #endregion
 
-    #region Interface Connection
-    private InterfaceController _interfaceController;
-    #endregion
-
-    #region General
-    [SerializeField] private UnityEvent _whenButtonPressed, _whenPlayerInteracts;
+    [Header("General")]
+    [SerializeField] private UnityEvent _whenButtonPressed;
+    [SerializeField] private UnityEvent _whenPlayerInteracts;
     private bool _wasPressed = false;
     private bool _canCheckInteract = false;
-    #endregion
+
+    [Header("Interface Connection")]
+    private InterfaceController _interfaceController;
 
 
     // --- Core Functions ---

@@ -1,24 +1,29 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CheckpointController : MonoBehaviour {
 
     // --- Private Declarations ---
+    [Header("Checkpoint")]
     [SerializeField] private Material[] _materials;
-    private Renderer _renderer;
+    private Renderer _checkpointRenderer;
+    private Collider _checkpointCollider;
     private RespawnController _respawnController;
-    private Collider _respawnCollider;
+
+    [Header("Events")]
+    [SerializeField] private UnityEvent _whenPlayerPass;
 
 
     // --- Core Functions ---
     private void Start() {
         _respawnController = GameObject.FindObjectOfType<RespawnController>();
-        
-        _renderer = GetComponent<Renderer>();
-        _renderer.enabled = true;
-        _renderer.sharedMaterial = _materials[0];
 
-        _respawnCollider = GetComponent<Collider>();
-        _respawnCollider.enabled = true;
+        _checkpointRenderer = GetComponent<Renderer>();
+        _checkpointRenderer.enabled = true;
+        _checkpointRenderer.sharedMaterial = _materials[0];
+
+        _checkpointCollider = GetComponent<Collider>();
+        _checkpointCollider.enabled = true;
     }
 
     private void OnTriggerEnter(Collider other) {
@@ -26,14 +31,15 @@ public class CheckpointController : MonoBehaviour {
             ChangeCheckpointMaterial();
             UpdatePlayerRespawn();
             this.enabled = false;
-            _respawnCollider.enabled = false;
+            _checkpointCollider.enabled = false;
+            _whenPlayerPass.Invoke();
         }
     }
 
 
     // --- Functions ---
     private void ChangeCheckpointMaterial() {
-        _renderer.sharedMaterial = _materials[1];
+        _checkpointRenderer.sharedMaterial = _materials[1];
     }
 
     private void UpdatePlayerRespawn() {
