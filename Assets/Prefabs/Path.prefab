@@ -74,7 +74,7 @@ MonoBehaviour:
   _pathBlock: {fileID: 4676077052024954479}
   _firstTargetTransform: {fileID: 4676077052064581838}
   _secondTargetTransform: {fileID: 4676077051369567314}
-  _moveSpeed: 0.8
+  _moveSpeed: 1
 --- !u!1 &4676077051369567315
 GameObject:
   m_ObjectHideFlags: 0

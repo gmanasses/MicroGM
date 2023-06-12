@@ -22,10 +22,21 @@ public class InterfaceController : MonoBehaviour {
     [SerializeField] private GameObject[] _playerHearts;
     [SerializeField, Range(0, 2)] private float _animationTimePlayerHeart;
 
+    [Header("Speech System")]
+    [SerializeField] private GameObject _speech;
+    [SerializeField, Range(0, 2)] private float _animationTimeSpeech;
+
     [Header("Game Over")]
     [SerializeField] private GameObject _gameOverPanel;
+    [SerializeField] private RectTransform _restartText;
     [SerializeField, Range(0, 2)] private float _animationTimeGameOver;
+    [SerializeField, Range(0, 4)] private float _animationTimeGameOverRestartPhrase;
     private float _halfPanelHeight;
+
+    [Header("Finish Game")]
+    [SerializeField] private Image _finishBackground;
+    [SerializeField] private GameObject _finishText;
+    [SerializeField, Range(0, 3)] private float _animationTimeFinish;
 
 
     // --- Core Fuctions ---
@@ -34,12 +45,22 @@ public class InterfaceController : MonoBehaviour {
         _halfCanvasHeight = _canvas.GetComponent<RectTransform>().rect.height / 2;
         _halfPanelHeight = _gameOverPanel.GetComponent<RectTransform>().rect.height / 2;
 
-        DisableTutorial();
+        if(LevelManager.Instance.GetFirstTutorialStatus()) {
+            DisableTutorial();
+
+        } else {
+            FadeDisableTutorial();
+        }
     }
 
 
     // --- Fuctions ---
     public void DisableTutorial() {
+        _tutorialBackground.gameObject.SetActive(false);
+        OnCloseTutorial();
+    }
+
+    private void FadeDisableTutorial() {
         LeanTween.alpha(_tutorialBackground.rectTransform, 0, _animationTimeTutorial).setDelay(_timeShowingTutorial).setEase(LeanTweenType.easeOutQuad).setOnComplete(OnCloseTutorial);
     }
 
@@ -64,13 +85,31 @@ public class InterfaceController : MonoBehaviour {
         LeanTween.scale(_playerHearts[index], Vector3.zero, _animationTimePlayerHeart).setDelay(.3f).setEase(LeanTweenType.easeInOutElastic);
     }
 
+    public void EnableOrDisableSpeechObj(bool enable) {
+        if(enable) {
+            LeanTween.scale(_speech, Vector3.one, _animationTimeSpeech).setEase(LeanTweenType.easeOutExpo);
+
+        } else {
+            LeanTween.scale(_speech, Vector3.zero, _animationTimeSpeech).setEase(LeanTweenType.easeInExpo);
+        }
+    }
+
     public void EnableOrDisableGameOverPanel(bool enable) {
-        if (enable) {
+        if(enable) {
             LeanTween.moveY(_gameOverPanel, _halfCanvasHeight - _halfPanelHeight/2, _animationTimeGameOver).setEase(LeanTweenType.easeOutQuint);
+            LeanTween.alphaText(_restartText, 1, _animationTimeGameOverRestartPhrase).setEase(LeanTweenType.easeInOutSine).setLoopPingPong();
 
         } else {
             LeanTween.moveY(_gameOverPanel, 0 - _halfPanelHeight, _animationTimeGameOver).setEase(LeanTweenType.easeInQuint);
         }
+    }
+
+    public void FadeInFinish() {
+        LeanTween.alpha(_finishBackground.rectTransform, 1, _animationTimeFinish).setEase(LeanTweenType.easeInCirc).setOnComplete(FadeFinishText);
+    }
+
+    private void FadeFinishText() {
+        LeanTween.scale(_finishText, Vector3.one, _animationTimeFinish).setEase(LeanTweenType.easeOutCirc);
     }
 
 }

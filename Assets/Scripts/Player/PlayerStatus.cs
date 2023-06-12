@@ -7,8 +7,9 @@ public class PlayerStatus : MonoBehaviour {
     private int _initialHealth;
     private int _currentHealth;
 
-    private RespawnController _respawnController;
     private InterfaceController _interfaceController;
+    private PlayerController _playerController;
+    private RespawnController _respawnController;
 
 
     // --- Core Functions ---
@@ -16,6 +17,7 @@ public class PlayerStatus : MonoBehaviour {
         _initialHealth = (int)(_maxHealth * 0.5);
         _currentHealth = _initialHealth;
 
+        _playerController = GetComponent<PlayerController>();
         _respawnController = GetComponent<RespawnController>();
 
         _interfaceController = GameObject.FindObjectOfType<InterfaceController>();
@@ -49,9 +51,15 @@ public class PlayerStatus : MonoBehaviour {
         _interfaceController.RemovePlayerHeart(_currentHealth);
 
         if (_currentHealth < 1) {
-            _respawnController.SetIfCantRespawn();
-            _interfaceController.EnableOrDisableGameOverPanel(true);
+            GameOver();
         }
+    }
+
+    private void GameOver() {
+        _playerController.DisablePlayerInput();
+        _respawnController.SetIfCantRespawn();
+        _respawnController.SetGameOverStage(true);
+        _interfaceController.EnableOrDisableGameOverPanel(true);
     }
 
 }

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class RespawnController : MonoBehaviour {
 
@@ -6,7 +7,7 @@ public class RespawnController : MonoBehaviour {
     [SerializeField, Range(-15, -4)] private float _heightToRespawn;
     [SerializeField] private Transform _spawnPoint;
     private Transform _mainRespawnPoint;
-    private bool _wantRespawn, _canRespawn;
+    private bool _wantRespawn, _canRespawn, _inGameOverStage;
 
     private PlayerStatus _playerStatus;
 
@@ -18,6 +19,15 @@ public class RespawnController : MonoBehaviour {
         _wantRespawn = false;
 
         _playerStatus = GetComponent<PlayerStatus>();
+    }
+
+    private void Update() {
+        if(_inGameOverStage) {
+            if(Input.anyKey) {
+                FindObjectOfType<LevelManager>().SetFirstTutorialStatus();
+                SceneManager.LoadScene("Master");
+            }
+        }
     }
 
     private void FixedUpdate() {
@@ -38,6 +48,10 @@ public class RespawnController : MonoBehaviour {
 
     public void SetIfCantRespawn() {
         this._canRespawn = false;
+    }
+
+    public void SetGameOverStage(bool isInGameOver) {
+        _inGameOverStage = isInGameOver;
     }
 
     public void UpdateRespawnPoint(Transform checkpointTransform) {
