@@ -41,8 +41,4 @@ public class MenuBackgroundController : MonoBehaviour {
         }
     }
 
-    public void PutSettingsBlock() {
-
-    }
-
 }
