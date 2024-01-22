@@ -1,2 +1,5 @@
-# GameMechanics
- A project to make many game mechanics to show my game programing abilities
+# MicroGM
+An isometric parkour game with perspective challenges. (Developed with Unity)
+
+# Game Link
+https://gmanasses.itch.io/game-mechanics
