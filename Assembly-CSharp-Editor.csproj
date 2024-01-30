@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{77B63E00-AF6F-7A00-5CF1-54035FAC39A2}</ProjectGuid>
+    <ProjectGuid>{63FFAE28-C01E-6F3A-BC00-28E3C7049B88}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp-Editor</AssemblyName>
@@ -58,7 +58,7 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.2.5f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\LeanTween\Editor\LeanTweenDocumentationEditor.cs" />
+    <Compile Include="Assets\Scripts\LeanTween\Editor\LeanTweenDocumentationEditor.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -835,7 +835,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp.csproj">
-      <Project>{0E7929C4-F299-57A0-779A-6B118187E456}</Project>
+      <Project>{E943E3C6-438C-DCB0-9037-BA671D94D615}</Project>
       <Name>Assembly-CSharp</Name>
     </ProjectReference>
   </ItemGroup>

@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{0E7929C4-F299-57A0-779A-6B118187E456}</ProjectGuid>
+    <ProjectGuid>{E943E3C6-438C-DCB0-9037-BA671D94D615}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -58,80 +58,87 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.2.5f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\LeanTween\Framework\LeanTweenExt.cs" />
+    <Compile Include="Assets\Scripts\LeanTween\Framework\LeanAudio.cs" />
+    <Compile Include="Assets\Scripts\LeanTween\Examples\Scripts\GeneralBasic.cs" />
     <Compile Include="Assets\Scripts\Speech\SpeechManager.cs" />
-    <Compile Include="Assets\LeanTween\Testing\TestingOptionalCancel.cs" />
-    <Compile Include="Assets\LeanTween\Examples\Scripts\GeneralCameraShake.cs" />
+    <Compile Include="Assets\Scripts\LeanTween\Examples\Scripts\PathSplineEndless.cs" />
     <Compile Include="Assets\Scripts\Checkpoint\CheckpointController.cs" />
-    <Compile Include="Assets\LeanTween\Examples\Scripts\TestingUnitTests.cs" />
-    <Compile Include="Assets\LeanTween\Framework\LTDescr.cs" />
+    <Compile Include="Assets\Scripts\LeanTween\Examples\Scripts\GeneralCameraShake.cs" />
+    <Compile Include="Assets\Scripts\LeanTween\Examples\Scripts\GeneralEasingTypes.cs" />
     <Compile Include="Assets\Scripts\ActivationButton\ActivationButton.cs" />
-    <Compile Include="Assets\LeanTween\Framework\LeanTest.cs" />
-    <Compile Include="Assets\LeanTween\Testing\TestingIssue2.cs" />
-    <Compile Include="Assets\LeanTween\Testing\Testing248.cs" />
-    <Compile Include="Assets\LeanTween\Testing\TestingDescr.cs" />
-    <Compile Include="Assets\LeanTween\Testing\TestingColorTweening.cs" />
+    <Compile Include="Assets\Scripts\LeanTween\Testing\PerformanceTests.cs" />
+    <Compile Include="Assets\Scripts\LeanTween\Testing\Testing248.cs" />
+    <Compile Include="Assets\Scripts\LeanTween\Testing\TestingColorTweening.cs" />
+    <Compile Include="Assets\Scripts\LeanTween\Testing\TestingOptionalCancel.cs" />
+    <Compile Include="Assets\Scripts\LeanTween\Testing\TestingDescr.cs" />
+    <Compile Include="Assets\Scripts\LeanTween\Framework\LTSeq.cs" />
+    <Compile Include="Assets\Scripts\LeanTween\Testing\TestingMaxTweens.cs" />
     <Compile Include="Assets\Scripts\Player\RespawnController.cs" />
-    <Compile Include="Assets\LeanTween\Examples\Scripts\GeneralSimpleUI.cs" />
-    <Compile Include="Assets\LeanTween\Examples\Scripts\PathSplineEndless.cs" />
-    <Compile Include="Assets\LeanTween\Examples\Scripts\Following.cs" />
+    <Compile Include="Assets\Scripts\LeanTween\Examples\Scripts\PathSpline2d.cs" />
+    <Compile Include="Assets\Scripts\LeanTween\Examples\Scripts\LogoCinematic.cs" />
+    <Compile Include="Assets\Scripts\LeanTween\Testing\TestingSceneSwitching.cs" />
+    <Compile Include="Assets\Scripts\LeanTween\Examples\Scripts\PathSplinePerformance.cs" />
+    <Compile Include="Assets\Scripts\LeanTween\Examples\Scripts\GeneralBasics2d.cs" />
     <Compile Include="Assets\Scripts\Platforms\DisablerOnPlatform.cs" />
+    <Compile Include="Assets\Scripts\LeanTween\Examples\Scripts\Following.cs" />
     <Compile Include="Assets\Scripts\Platforms\Moving Bridge\Moving Bridge.cs" />
     <Compile Include="Assets\Scripts\Speech\SpeechTrigger.cs" />
-    <Compile Include="Assets\LeanTween\Testing\TestingRotate.cs" />
-    <Compile Include="Assets\LeanTween\Testing\Testing243.cs" />
-    <Compile Include="Assets\LeanTween\Examples\Scripts\GeneralBasics2d.cs" />
+    <Compile Include="Assets\Scripts\LeanTween\Examples\Scripts\GeneralSequencer.cs" />
+    <Compile Include="Assets\Scripts\LeanTween\Framework\LeanTest.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
+    <Compile Include="Assets\Models\Dynamic Grass FX\Demo\Scripts\Move.cs" />
     <Compile Include="Assets\Scripts\Level\Map\MapController.cs" />
     <Compile Include="Assets\Scripts\Platforms\Elevator\Elevator.cs" />
-    <Compile Include="Assets\LeanTween\Examples\Scripts\PathSplineTrack.cs" />
     <Compile Include="Assets\Scripts\PathConstructor\PathConstructor.cs" />
-    <Compile Include="Assets\LeanTween\Examples\Scripts\PathBezier.cs" />
-    <Compile Include="Assets\LeanTween\Examples\Scripts\PathSpline.cs" />
-    <Compile Include="Assets\LeanTween\Testing\Testing240.cs" />
+    <Compile Include="Assets\Scripts\LeanTween\Testing\FollowingTests.cs" />
     <Compile Include="Assets\Scripts\Jumper\Jumper.cs" />
-    <Compile Include="Assets\LeanTween\Testing\Scripts\LeanPool.cs" />
-    <Compile Include="Assets\LeanTween\Testing\TestingSequencer.cs" />
-    <Compile Include="Assets\LeanTween\Examples\Scripts\TestingZLegacy.cs" />
-    <Compile Include="Assets\LeanTween\Testing\PerformanceTests.cs" />
-    <Compile Include="Assets\LeanTween\Examples\Scripts\LogoCinematic.cs" />
+    <Compile Include="Assets\Scripts\LeanTween\Framework\LTDescrOptional.cs" />
+    <Compile Include="Assets\Scripts\LeanTween\Testing\Scripts\LeanPool.cs" />
     <Compile Include="Assets\Scripts\UI\InterfaceController.cs" />
-    <Compile Include="Assets\LeanTween\Examples\Scripts\GeneralAdvancedTechniques.cs" />
     <Compile Include="Assets\Scripts\ArrowTrap\ArrowTrap.cs" />
+    <Compile Include="Assets\Scripts\LeanTween\Examples\Scripts\PathSplineTrack.cs" />
+    <Compile Include="Assets\Scripts\LeanTween\Examples\Scripts\TestingUnitTests.cs" />
+    <Compile Include="Assets\Models\Dynamic Grass FX\Demo\Scripts\Rotate.cs" />
     <Compile Include="Assets\Scripts\Level\LevelManager.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerStatus.cs" />
-    <Compile Include="Assets\LeanTween\Testing\TestingSceneSwitching.cs" />
-    <Compile Include="Assets\LeanTween\Testing\Testing246.cs" />
-    <Compile Include="Assets\LeanTween\Examples\Scripts\TestingZLegacyExt.cs" />
-    <Compile Include="Assets\LeanTween\Examples\Scripts\GeneralSequencer.cs" />
-    <Compile Include="Assets\LeanTween\Examples\Scripts\GeneralEventsListeners.cs" />
+    <Compile Include="Assets\Scripts\LeanTween\Examples\Scripts\TestingZLegacy.cs" />
+    <Compile Include="Assets\Scripts\LeanTween\Examples\Scripts\GeneralSimpleUI.cs" />
+    <Compile Include="Assets\Scripts\LeanTween\Framework\LeanSmooth.cs" />
+    <Compile Include="Assets\Scripts\LeanTween\Testing\Testing243.cs" />
+    <Compile Include="Assets\Scripts\LeanTween\Framework\LTDescr.cs" />
+    <Compile Include="Assets\Scripts\LeanTween\Examples\Scripts\PathBezier2d.cs" />
     <Compile Include="Assets\Scripts\Menu\MenuBackgroundController.cs" />
-    <Compile Include="Assets\LeanTween\Examples\Scripts\PathSpline2d.cs" />
-    <Compile Include="Assets\LeanTween\Framework\LTSeq.cs" />
-    <Compile Include="Assets\LeanTween\Examples\Scripts\PathBezier2d.cs" />
-    <Compile Include="Assets\LeanTween\Examples\Scripts\PathSplinePerformance.cs" />
-    <Compile Include="Assets\LeanTween\Examples\Scripts\GeneralEasingTypes.cs" />
-    <Compile Include="Assets\LeanTween\Framework\LeanTween.cs" />
-    <Compile Include="Assets\LeanTween\Framework\LeanTweenExt.cs" />
+    <Compile Include="Assets\Scripts\AudioManager.cs" />
+    <Compile Include="Assets\Scripts\LeanTween\Examples\Scripts\GeneralAdvancedTechniques.cs" />
+    <Compile Include="Assets\Scripts\LeanTween\Examples\Scripts\TestingZLegacyExt.cs" />
+    <Compile Include="Assets\Scripts\LeanTween\Testing\TestingIssue2.cs" />
+    <Compile Include="Assets\Scripts\LeanTween\Examples\Scripts\GeneralEventsListeners.cs" />
+    <Compile Include="Assets\Scripts\LeanTween\Testing\Testing246.cs" />
+    <Compile Include="Assets\Scripts\LeanTween\Examples\Scripts\PathSpline.cs" />
     <Compile Include="Assets\Scripts\PathConstructor\PathBlock.cs" />
-    <Compile Include="Assets\LeanTween\Framework\LeanSmooth.cs" />
+    <Compile Include="Assets\Scripts\LeanTween\Testing\TestingIssue.cs" />
+    <Compile Include="Assets\Scripts\LeanTween\Examples\Scripts\PathBezier.cs" />
+    <Compile Include="Assets\Scripts\LeanTween\Examples\Scripts\GeneralUISpace.cs" />
     <Compile Include="Assets\Scripts\ArrowTrap\Arrow.cs" />
     <Compile Include="Assets\Scripts\Menu\MenuController.cs" />
-    <Compile Include="Assets\LeanTween\Framework\LeanAudio.cs" />
-    <Compile Include="Assets\LeanTween\Framework\LTDescrOptional.cs" />
-    <Compile Include="Assets\LeanTween\Testing\TestingMaxTweens.cs" />
-    <Compile Include="Assets\LeanTween\Testing\TestingIssue.cs" />
-    <Compile Include="Assets\LeanTween\Examples\Scripts\GeneralUISpace.cs" />
-    <Compile Include="Assets\LeanTween\Testing\FollowingTests.cs" />
-    <Compile Include="Assets\LeanTween\Examples\Scripts\GeneralBasic.cs" />
-    <Compile Include="Assets\LeanTween\Examples\Scripts\PathSplines.cs" />
+    <Compile Include="Assets\Scripts\LeanTween\Testing\Testing240.cs" />
+    <Compile Include="Assets\Scripts\LeanTween\Testing\TestingSequencer.cs" />
+    <Compile Include="Assets\Scripts\LeanTween\Testing\TestingRotate.cs" />
+    <Compile Include="Assets\Scripts\LeanTween\Framework\LeanTween.cs" />
+    <Compile Include="Assets\Scripts\LeanTween\Examples\Scripts\PathSplines.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\LeanTween\ReadMe.txt" />
-    <None Include="Assets\SimplePixelUI\fonts\Font2\license.txt" />
-    <None Include="Assets\LeanTween\License.txt" />
-    <None Include="Assets\SimplePixelUI\fonts\Font1\license.txt" />
-    <None Include="Assets\SimplePixelUI\fonts\Font1\readme.txt" />
-    <None Include="Assets\SimplePixelUI\fonts\Font2\readme.txt" />
+    <None Include="Assets\Audio\Nature Sound FX\__Gift__\Weapons SFX\Weapons SFX Full Package.txt" />
+    <None Include="Assets\Models\Dynamic Grass FX\Shaders\Helpers.cginc" />
+    <None Include="Assets\Scripts\LeanTween\ReadMe.txt" />
+    <None Include="Assets\UI\SimplePixelUI\fonts\Font2\license.txt" />
+    <None Include="Assets\Scripts\LeanTween\License.txt" />
+    <None Include="Assets\Models\Dynamic Grass FX\Shaders\Grass.shader" />
+    <None Include="Assets\UI\SimplePixelUI\fonts\Font1\license.txt" />
+    <None Include="Assets\UI\SimplePixelUI\fonts\Font1\readme.txt" />
+    <None Include="Assets\UI\SimplePixelUI\fonts\Font2\readme.txt" />
+    <None Include="Assets\Models\Dynamic Grass FX\Shaders\GrassTessellation.cginc" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
