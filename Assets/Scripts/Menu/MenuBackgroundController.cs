@@ -24,6 +24,7 @@ public class MenuBackgroundController : MonoBehaviour {
 
     // --- Fuctions ---
     public void PutButtonOnClickablePosition(int index) {
+        AudioManager.Instance.PlaySFX("UI_stoneSlab");
         LeanTween.rotateX(_buttons[index], _angleButtonRotation, _animationTimeButton);
 
         Vector3 teste = new Vector3(_startButtonPositions[index].x + _movementButton, _startButtonPositions[index].y, _startButtonPositions[index].z);

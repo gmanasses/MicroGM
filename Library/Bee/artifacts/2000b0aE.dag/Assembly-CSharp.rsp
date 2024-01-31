@@ -349,7 +349,7 @@
 "Assets/Scripts/ActivationButton/ActivationButton.cs"
 "Assets/Scripts/ArrowTrap/Arrow.cs"
 "Assets/Scripts/ArrowTrap/ArrowTrap.cs"
-"Assets/Scripts/AudioManager.cs"
+"Assets/Scripts/Audio/AudioManager.cs"
 "Assets/Scripts/Checkpoint/CheckpointController.cs"
 "Assets/Scripts/Jumper/Jumper.cs"
 "Assets/Scripts/LeanTween/Examples/Scripts/Following.cs"
