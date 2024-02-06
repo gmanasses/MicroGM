@@ -6,8 +6,8 @@ public class AudioManager : MonoBehaviour {
     public static AudioManager Instance;
 
     [Header("Audio Source")]
-    [SerializeField] AudioSource MusicSource;
-    [SerializeField] AudioSource SfxSource;
+    [SerializeField] private AudioSource _musicSource;
+    [SerializeField] private AudioSource _sfxSource;
 
     [Header("Sounds")]
     public Sound[] musicSounds;
@@ -31,27 +31,35 @@ public class AudioManager : MonoBehaviour {
 
 
     // --- Functions ---
-    public void PlayMusic(string clipName) {
-        Sound musicToPlay = Array.Find(musicSounds, x => x.name == clipName);
+    public void PlayMusic(string musicName) {
+        Sound musicToPlay = Array.Find(musicSounds, x => x.name == musicName);
 
         if(musicToPlay == null) {
-            Debug.Log("ERROR: Music not found");
+            Debug.LogError("ERROR: Music not found");
         
         } else {
-            MusicSource.clip = musicToPlay.clip;
-            MusicSource.Play();
+            _musicSource.clip = musicToPlay.clip;
+            _musicSource.Play();
         }
     }
 
-    public void PlaySFX(string clipName) {
-        Sound sfxToPlay = Array.Find(sfxSounds, x => x.name == clipName);
+    public void PlaySFX(string effectName) {
+        Sound sfxToPlay = Array.Find(sfxSounds, x => x.name == effectName);
 
         if (sfxToPlay == null) {
-            Debug.Log("ERROR: SFX not found");
+            Debug.LogError("ERROR: SFX not found");
 
         } else {
-            SfxSource.PlayOneShot(sfxToPlay.clip);
+            _sfxSource.PlayOneShot(sfxToPlay.clip);
         }
+    }
+
+    public void MusicVolume(float volume) {
+        _musicSource.volume = volume;
+    }
+
+    public void SfxVolume(float volume) {
+        _sfxSource.volume = volume;
     }
 
 }
