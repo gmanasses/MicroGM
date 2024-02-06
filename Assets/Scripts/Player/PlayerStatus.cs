@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PlayerStatus : MonoBehaviour {
@@ -14,7 +15,7 @@ public class PlayerStatus : MonoBehaviour {
 
     // --- Core Functions ---
     private void Start() {
-        _initialHealth = (int)(_maxHealth * 0.5);
+        _initialHealth = (int) Math.Ceiling(_maxHealth * 0.5);
         _currentHealth = _initialHealth;
 
         _playerController = GetComponent<PlayerController>();
