@@ -102,8 +102,8 @@
     <Compile Include="Assets\Models\Dynamic Grass FX\Demo\Scripts\Rotate.cs" />
     <Compile Include="Assets\Scripts\Level\LevelManager.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerStatus.cs" />
-    <Compile Include="Assets\Scripts\LeanTween\Examples\Scripts\TestingZLegacy.cs" />
     <Compile Include="Assets\Scripts\Audio\VolumeSliderController.cs" />
+    <Compile Include="Assets\Scripts\LeanTween\Examples\Scripts\TestingZLegacy.cs" />
     <Compile Include="Assets\Scripts\LeanTween\Examples\Scripts\GeneralSimpleUI.cs" />
     <Compile Include="Assets\Scripts\LeanTween\Framework\LeanSmooth.cs" />
     <Compile Include="Assets\Scripts\LeanTween\Testing\Testing243.cs" />

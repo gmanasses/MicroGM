@@ -4,7 +4,7 @@ public class LevelManager : MonoBehaviour {
 
     // --- Private Declarations ---
     public static LevelManager Instance;
-    [SerializeField]private bool _alreadySeenFirstTutorial;
+    [SerializeField] private bool _alreadySeenFirstTutorial;
 
 
     // --- Core Functions ---
