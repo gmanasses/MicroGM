@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using System.Reflection;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -16,6 +15,7 @@ public class InterfaceController : MonoBehaviour {
     [SerializeField] private GameObject _tutorialBanner;
     [SerializeField] private GameObject _tutorialJump;
     [SerializeField] private GameObject _tutorialMovement;
+    [SerializeField] private GameObject _tutorialHealth;
     [SerializeField, Range(0, 1)] private float _timeBetweenTutorialParts;
     [SerializeField, Range(0, 5)] private float _timeShowingTutorialPart;
     [SerializeField, Range(0, 3)] private float _animationTimeTutorial;
@@ -70,7 +70,7 @@ public class InterfaceController : MonoBehaviour {
     private IEnumerator ShowTutorial() {
         //tutorial banner with text
         LeanTween.scale(_tutorialBanner, Vector3.one, _animationTimeTutorial).setDelay(.2f).setEase(LeanTweenType.easeOutElastic);
-        yield return new WaitForSecondsRealtime(_timeShowingTutorialPart);
+        yield return new WaitForSecondsRealtime(_timeShowingTutorialPart + 3);
         LeanTween.scale(_tutorialBanner, Vector3.zero, _animationTimeTutorial).setDelay(.2f).setEase(LeanTweenType.easeInOutElastic);
         yield return new WaitForSecondsRealtime(_timeBetweenTutorialParts);
 
@@ -83,7 +83,13 @@ public class InterfaceController : MonoBehaviour {
         //show movement controller
         LeanTween.scale(_tutorialMovement, Vector3.one, _animationTimeTutorial).setDelay(.2f).setEase(LeanTweenType.easeOutElastic);
         yield return new WaitForSecondsRealtime(_timeShowingTutorialPart);
-        LeanTween.scale(_tutorialMovement, Vector3.zero, _animationTimeTutorial).setDelay(.2f).setEase(LeanTweenType.easeInOutElastic).setOnComplete(FinishTutorial);
+        LeanTween.scale(_tutorialMovement, Vector3.zero, _animationTimeTutorial).setDelay(.2f).setEase(LeanTweenType.easeInOutElastic);
+        yield return new WaitForSecondsRealtime(_timeBetweenTutorialParts);
+
+        //show health
+        LeanTween.scale(_tutorialHealth, Vector3.one, _animationTimeTutorial).setDelay(.2f).setEase(LeanTweenType.easeOutElastic);
+        yield return new WaitForSecondsRealtime(_timeShowingTutorialPart);
+        LeanTween.scale(_tutorialHealth, Vector3.zero, _animationTimeTutorial).setDelay(.2f).setEase(LeanTweenType.easeInOutElastic).setOnComplete(FinishTutorial);
     }
 
     private void FinishTutorial() {
