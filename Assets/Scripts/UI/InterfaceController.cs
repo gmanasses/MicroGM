@@ -1,3 +1,6 @@
+using System;
+using System.Collections;
+using System.Reflection;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -9,8 +12,12 @@ public class InterfaceController : MonoBehaviour {
     private float _halfCanvasHeight;
 
     [Header("Tutorial")]
-    [SerializeField] private Image _tutorialBackground; 
-    [SerializeField, Range(0, 5)] private float _timeShowingTutorial;
+    [SerializeField] private Image _tutorialBackground;
+    [SerializeField] private GameObject _tutorialBanner;
+    [SerializeField] private GameObject _tutorialJump;
+    [SerializeField] private GameObject _tutorialMovement;
+    [SerializeField, Range(0, 1)] private float _timeBetweenTutorialParts;
+    [SerializeField, Range(0, 5)] private float _timeShowingTutorialPart;
     [SerializeField, Range(0, 3)] private float _animationTimeTutorial;
     [SerializeField] private UnityEvent _whenTutorialsClose;
 
@@ -45,11 +52,11 @@ public class InterfaceController : MonoBehaviour {
         _halfCanvasHeight = _canvas.GetComponent<RectTransform>().rect.height / 2;
         _halfPanelHeight = _gameOverPanel.GetComponent<RectTransform>().rect.height / 2;
 
-        if(LevelManager.Instance.GetFirstTutorialStatus()) {
+        if(PlayerPrefs.HasKey("hasSeenTutorial")) {
             DisableTutorial();
 
         } else {
-            FadeDisableTutorial();
+            StartCoroutine(ShowTutorial());
         }
     }
 
@@ -60,8 +67,28 @@ public class InterfaceController : MonoBehaviour {
         OnCloseTutorial();
     }
 
-    private void FadeDisableTutorial() {
-        LeanTween.alpha(_tutorialBackground.rectTransform, 0, _animationTimeTutorial).setDelay(_timeShowingTutorial).setEase(LeanTweenType.easeOutQuad).setOnComplete(OnCloseTutorial);
+    private IEnumerator ShowTutorial() {
+        //tutorial banner with text
+        LeanTween.scale(_tutorialBanner, Vector3.one, _animationTimeTutorial).setDelay(.2f).setEase(LeanTweenType.easeOutElastic);
+        yield return new WaitForSecondsRealtime(_timeShowingTutorialPart);
+        LeanTween.scale(_tutorialBanner, Vector3.zero, _animationTimeTutorial).setDelay(.2f).setEase(LeanTweenType.easeInOutElastic);
+        yield return new WaitForSecondsRealtime(_timeBetweenTutorialParts);
+
+        //show jump controller
+        LeanTween.scale(_tutorialJump, Vector3.one, _animationTimeTutorial).setDelay(.2f).setEase(LeanTweenType.easeOutElastic);
+        yield return new WaitForSecondsRealtime(_timeShowingTutorialPart);
+        LeanTween.scale(_tutorialJump, Vector3.zero, _animationTimeTutorial).setDelay(.2f).setEase(LeanTweenType.easeInOutElastic);
+        yield return new WaitForSecondsRealtime(_timeBetweenTutorialParts);
+
+        //show movement controller
+        LeanTween.scale(_tutorialMovement, Vector3.one, _animationTimeTutorial).setDelay(.2f).setEase(LeanTweenType.easeOutElastic);
+        yield return new WaitForSecondsRealtime(_timeShowingTutorialPart);
+        LeanTween.scale(_tutorialMovement, Vector3.zero, _animationTimeTutorial).setDelay(.2f).setEase(LeanTweenType.easeInOutElastic).setOnComplete(FinishTutorial);
+    }
+
+    private void FinishTutorial() {
+        _tutorialBackground.transform.parent.gameObject.SetActive(false);
+        OnCloseTutorial();
     }
 
     private void OnCloseTutorial() {
